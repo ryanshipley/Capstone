@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Character</title>
+</head>
+<body>
+
+    <h2>Create Your Character</h2>
+
+    <!-- Character Creation Form -->
+    <form action="/save-character" method="post">
+        <!-- Basic Information -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="race">Race:</label>
+        <input type="text" id="race" name="race" required>
+
+        <label for="characterClass">Class:</label>
+        <input type="text" id="characterClass" name="characterClass" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image">
+
+        <!-- Statistics -->
+        <label for="strength">Strength (0-20):</label>
+        <input type="number" id="strength" name="strength" value="0" min="0" max="20" required>
+
+        <label for="dexterity">Dexterity (0-20):</label>
+        <input type="number" id="dexterity" name="dexterity" value="0" min="0" max="20" required>
+
+        <label for="constitution">Constitution (0-20):</label>
+        <input type="number" id="constitution" name="constitution" value="0" min="0" max="20" required>
+
+        <label for="intelligence">Intelligence (0-20):</label>
+        <input type="number" id="intelligence" name="intelligence" value="0" min="0" max="20" required>
+
+        <label for="wisdom">Wisdom (0-20):</label>
+        <input type="number" id="wisdom" name="wisdom" value="0" min="0" max="20" required>
+
+        <label for="charisma">Charisma (0-20):</label>
+        <input type="number" id="charisma" name="charisma" value="0" min="0" max="20" required>
+
+        <button type="submit">Save Character</button>
+    </form>
+
+    <!-- Add a link back to the home page -->
+    <p><a th:href="@{/}">Back to Home</a></p>
+
+</body>
+</html>
