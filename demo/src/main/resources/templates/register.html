@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+
+    <h2>Registration Page</h2>
+
+    <!-- Registration Form -->
+    <form action="/register" method="post">
+        <label for="username">Username (between 5 and 20 characters):</label>
+        <input type="text" id="username" name="username" pattern=".{5,20}" required title="Between 5 and 20 characters">
+        
+        <label for="password">Password (between 8 and 15 characters, with one uppercase, one lowercase, one number, and one special character):</label>
+        <input type="password" id="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" required title="Between 8 and 15 characters with at least one uppercase, one lowercase, one number, and one special character">
+        
+        <button type="submit">Register</button>
+    </form>
+
+</body>
+</html>
