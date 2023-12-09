@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 import java.util.Optional;
@@ -31,37 +30,37 @@ public class CharacterController {
         return new ModelAndView("create-character");
     }
 
-@PostMapping("/save")
-public String saveCharacter(@ModelAttribute Character character) {
-    if (character.getId() == null) {
-        // If the character ID is null, it's a new character, so save it
-        characterRepository.save(character);
-    } else {
-        // If the character ID is not null, it's an existing character, so update it
-        Optional<Character> existingCharacter = characterRepository.findById(character.getId());
-        existingCharacter.ifPresent(updatedCharacter -> {
-            // Update the existing character with the new data
-            updatedCharacter.setName(character.getName());
-            updatedCharacter.setRace(character.getRace());
-            updatedCharacter.setCharacterClass(character.getCharacterClass());
-            updatedCharacter.setDescription(character.getDescription());
-            updatedCharacter.setImage(character.getImage());
-            updatedCharacter.setStrength(character.getStrength());
-            updatedCharacter.setDexterity(character.getDexterity());
-            updatedCharacter.setConstitution(character.getConstitution());
-            updatedCharacter.setIntelligence(character.getIntelligence());
-            updatedCharacter.setWisdom(character.getWisdom());
-            updatedCharacter.setCharisma(character.getCharisma());
+    @PostMapping("/save")
+    public String saveCharacter(@ModelAttribute Character character) {
+        if (character.getId() == null) {
+            // If the character ID is null, it's a new character, so save it
+            characterRepository.save(character);
+        } else {
+            // If the character ID is not null, it's an existing character, so update it
+            Optional<Character> existingCharacter = characterRepository.findById(character.getId());
+            existingCharacter.ifPresent(updatedCharacter -> {
+                // Update the existing character with the new data
+                updatedCharacter.setName(character.getName());
+                updatedCharacter.setRace(character.getRace());
+                updatedCharacter.setCharacterClass(character.getCharacterClass());
+                updatedCharacter.setDescription(character.getDescription());
+                updatedCharacter.setImage(character.getImage());
+                updatedCharacter.setStrength(character.getStrength());
+                updatedCharacter.setDexterity(character.getDexterity());
+                updatedCharacter.setConstitution(character.getConstitution());
+                updatedCharacter.setIntelligence(character.getIntelligence());
+                updatedCharacter.setWisdom(character.getWisdom());
+                updatedCharacter.setCharisma(character.getCharisma());
             
 
-            // Save the updated character
-            characterRepository.save(updatedCharacter);
-        });
-    }
+                // Save the updated character
+                characterRepository.save(updatedCharacter);
+            });
+        }
 
-    // Redirect to the list of all characters after saving/updating
-    return "redirect:/characters/all";
-}
+        // Redirect to the list of all characters after saving/updating
+        return "redirect:/characters/all";
+    }
 
     @GetMapping("/all")
     public String getAllCharacters(Model model) {
