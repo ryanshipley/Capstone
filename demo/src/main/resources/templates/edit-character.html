@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Character</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            width: 50%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        a:hover {
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Edit Character</h2>
+
+    <!-- Character Edit Form -->
+    <form action="/characters/save" method="post">
+        <!-- Hidden input for character ID -->
+        <input type="hidden" name="id" th:value="${character.id}" />
+
+        <!-- Editable fields -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:value="${character.name}" required />
+
+        <label for="race">Race:</label>
+        <input type="text" id="race" name="race" th:value="${character.race}" required />
+
+        <label for="characterClass">Class:</label>
+        <input type="text" id="characterClass" name="characterClass" th:value="${character.characterClass}" required />
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required th:text="${character.description}"></textarea>
+
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image" th:value="${character.image}"/>
+
+        <label for="strength">Strength: </label>
+        <input type="number" id="strength" name="strength" th:value="${character.strength}" required />
+
+        <label for="constitution">Constitution: </label>
+        <input type="number" id="constitution" name="constitution" th:value="${character.constitution}" required />
+
+        <label for="dexterity">Dexterity: </label>
+        <input type="number" id="dexterity" name="dexterity" th:value="${character.dexterity}" required />
+
+        <label for="intelligence">Intelligence: </label>
+        <input type="number" id="intelligence" name="intelligence" th:value="${character.intelligence}" required />
+
+        <label for="wisdom">Wisdom: </label>
+        <input type="number" id="wisdom" name="wisdom" th:value="${character.wisdom}" required />
+
+        <label for="charisma">Charisma: </label>
+        <input type="number" id="charisma" name="charisma" th:value="${character.charisma}" required />
+
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <!-- Add a link back to the list of all characters -->
+    <p><a th:href="@{/characters/all}">Back to All Characters</a></p>
+
+</body>
+</html>

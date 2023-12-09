@@ -61,6 +61,7 @@
     <p><strong>Wisdom:</strong> <span th:text="${character.wisdom}"></span></p>
     <p><strong>Charisma:</strong> <span th:text="${character.charisma}"></span></p>
     
+    <p><a th:href="@{/characters/edit/{id}(id=${character.id})}">Edit Character</a></p>
     <p><a th:href="@{/characters/all}">Back to All Characters</a></p>
 
 </body>
