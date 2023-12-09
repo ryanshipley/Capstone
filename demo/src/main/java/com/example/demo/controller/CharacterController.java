@@ -96,5 +96,10 @@ public String saveCharacter(@ModelAttribute Character character) {
         }
     }
 
+    @GetMapping("/delete/{id}")
+    public String deleteCharacter(@PathVariable Long id) {
+            characterRepository.deleteById(id);
+            return "redirect:/characters/all";
+    }
 
 }

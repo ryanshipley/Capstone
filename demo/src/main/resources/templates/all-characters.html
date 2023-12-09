@@ -92,6 +92,7 @@
                 <td th:text="${character.intelligence}"></td>
                 <td th:text="${character.wisdom}"></td>
                 <td th:text="${character.charisma}"></td>
+                <td><a th:href="@{/characters/delete/{id}(id=${character.id})}" onclick="return confirm('Are you sure you want to delete this character?')">Delete</a></td>
             </tr>
         </tbody>
     </table>
