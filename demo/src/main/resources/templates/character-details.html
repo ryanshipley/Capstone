@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${character.name}"></title>
+</head>
+<body>
+
+    <h2 th:text="${character.name}"></h2>
+
+    <img th:src="${character.image}" alt="Character Image" style="max-width: 100%">
+
+    <p><strong>Race:</strong> <span th:text="${character.race}"></span></p>
+    <p><strong>Class:</strong> <span th:text="${character.characterClass}"></span></p>
+    <p><strong>Description:</strong> <span th:text="${character.description}"></span></p>
+    <p><strong>Strength:</strong> <span th:text="${character.strength}"></span></p>
+    <p><strong>Constitution:</strong> <span th:text="${character.constitution}"></span></p>
+    <p><strong>Dexterity:</strong> <span th:text="${character.dexterity}"></span></p>
+    <p><strong>Intelligence:</strong> <span th:text="${character.intelligence}"></span></p>
+    <p><strong>Wisdom:</strong> <span th:text="${character.wisdom}"></span></p>
+    <p><strong>Charisma:</strong> <span th:text="${character.charisma}"></span></p>
+    
+    <p><a th:href="@{/characters/all}">Back to All Characters</a></p>
+
+</body>
+</html>

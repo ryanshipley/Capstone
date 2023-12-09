@@ -5,11 +5,13 @@ import com.example.demo.repository.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/characters")
@@ -71,5 +73,20 @@ public class CharacterController {
         ModelAndView modelAndView = new ModelAndView("all-characters");
         modelAndView.addObject("characters", characters);
         return modelAndView;
-}
+    }
+
+    @GetMapping("/details/{id}")
+    public ModelAndView viewCharacterDetails(@PathVariable Long id) {
+        Optional<Character> optionalCharacter = characterRepository.findById(id);
+
+        if (optionalCharacter.isPresent()) {
+            Character character = optionalCharacter.get();
+            ModelAndView modelAndView = new ModelAndView("character-details");
+            modelAndView.addObject("character", character);
+            return modelAndView;
+        } else {
+            // Handle case when character with the given id is not found
+            return new ModelAndView("redirect:/characters/all");
+        }
+    }
 }

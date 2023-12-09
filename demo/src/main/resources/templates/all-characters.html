@@ -83,11 +83,10 @@
             <!-- Iterate over characters and display each row -->
             <tr th:each="character : ${characters}">
                 <td th:text="${character.id}"></td>
-                <td th:text="${character.name}"></td>
+                <td><a th:href="@{/characters/details/{id}(id=${character.id})}" th:text="${character.name}"></a></td>
                 <td th:text="${character.race}"></td>
                 <td th:text="${character.characterClass}"></td>
                 <td th:text="${character.description}"></td>
-                <td th:text="${character.image}"></td>
                 <td th:text="${character.strength}"></td>
                 <td th:text="${character.dexterity}"></td>
                 <td th:text="${character.constitution}"></td>
