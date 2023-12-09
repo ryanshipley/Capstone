@@ -43,11 +43,17 @@
 
     <h2>Welcome to the Table Top Role Playing Character Manager</h2>
 
+        <!-- Check for success message and display it -->
+    <div th:if="${successMessage}">
+        <p style="color: green;" th:text="${successMessage}"></p>
+    </div>
+
     <!-- Navigation Links -->
     <ul>
         <li><a th:href="@{/login}">Login</a></li>
         <li><a th:href="@{/register}">Register</a></li>
-        <li><a th:href="@{/create-character}">Create Character</a></li>
+        <li><a th:href="@{/characters/create}">Create Character</a></li>
+        <li><a th:href="@{/characters/all}">View All Characters</a></li>
     </ul>
 
 </body>

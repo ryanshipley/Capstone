@@ -12,6 +12,18 @@
             margin: 20px;
         }
 
+        .notification {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         h2 {
             text-align: center;
         }
@@ -56,7 +68,7 @@
     <h2>Create Your Character</h2>
 
     <!-- Character Creation Form -->
-    <form action="/save-character" method="post">
+    <form action="/characters/save" method="post">
         <!-- Basic Information -->
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -98,10 +110,27 @@
         <button type="submit">Save Character</button>
     </form>
 
+    <div th:if="${successMessage}" class="notification">
+        <p th:text="${successMessage}"></p>
+    </div>
+
     <!-- Add a link back to the home page -->
     <p><a th:href="@{/}">Back to Home</a></p>
 
     <script>
+        function showNotification(event) {
+            // Prevent the form from submitting immediately
+            event.preventDefault();
+
+            // Display the notification
+            document.getElementById('notification').style.display = 'block';
+
+            // Hide the notification after 3 seconds (adjust as needed)
+            setTimeout(function () {
+                document.getElementById('notification').style.display = 'none';
+            }, 3000);
+        }
+
         function randomizeStats() {
             document.getElementById('strength').value = Math.floor(Math.random() * 21);
             document.getElementById('dexterity').value = Math.floor(Math.random() * 21);

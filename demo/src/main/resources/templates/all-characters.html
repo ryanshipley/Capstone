@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Characters</title>
+</head>
+<body>
+
+    <h2>All Characters</h2>
+
+    <!-- Display all characters in a table -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Race</th>
+                <th>Class</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Strength</th>
+                <th>Deterity</th>
+                <th>Constitution</th>
+                <th>Intelligence</th>
+                <th>Wisdom</th>
+                <th>Charisma</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over characters and display each row -->
+            <tr th:each="character : ${characters}">
+                <td th:text="${character.id}"></td>
+                <td th:text="${character.name}"></td>
+                <td th:text="${character.race}"></td>
+                <td th:text="${character.characterClass}"></td>
+                <td th:text="${character.description}"></td>
+                <td th:text="${character.image}"></td>
+                <td th:text="${character.strength}"></td>
+                <td th:text="${character.dexterity}"></td>
+                <td th:text="${character.constitution}"></td>
+                <td th:text="${character.intelligence}"></td>
+                <td th:text="${character.wisdom}"></td>
+                <td th:text="${character.charisma}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Add a link back to the home page -->
+    <p><a th:href="@{/}">Back to Home</a></p>
+
+</body>
+</html>
