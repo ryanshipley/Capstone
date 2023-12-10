@@ -58,8 +58,7 @@ public class CharacterController {
             });
         }
 
-        // Redirect to the list of all characters after saving/updating
-        return "redirect:/characters/all";
+        return "redirect:/characters/details/" + character.getId();
     }
 
     @GetMapping("/all")
