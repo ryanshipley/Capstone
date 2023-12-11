@@ -32,6 +32,15 @@ public class CharacterController {
 
     @PostMapping("/save")
     public String saveCharacter(@ModelAttribute Character character) {
+
+        // Check the number of existing characters
+        long existingCharacterCount = characterRepository.count();
+
+        if (existingCharacterCount >= 8) {
+            // If there are already 8 characters, redirect to the list of all characters
+            return "redirect:/characters/all";
+        }
+
         if (character.getId() == null) {
             // If the character ID is null, it's a new character, so save it
             characterRepository.save(character);

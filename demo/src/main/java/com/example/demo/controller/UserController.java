@@ -15,7 +15,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
-        // Add any necessary model attributes
         return "register"; // Thymeleaf template name (register.html)
     }
+    
 }

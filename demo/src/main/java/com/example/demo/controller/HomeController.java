@@ -9,7 +9,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String showHomePage(Model model) {
-        // Add any necessary model attributes
         return "index"; // Thymeleaf template name (home.html)
     }
 }
