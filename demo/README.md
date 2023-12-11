@@ -12,6 +12,7 @@
 | 12/06/2023 | Ryan Shipley | Setup the character controller file with all the routes | 
 | 12/06/2023 | Seth Truesdale | Functionality to generate stats randomly |
 | 12/06/2023 | Bryan Flett | Incorporated the random generation into a script tag |
+| 12/06/2023 | Ryan Shipley | Wrote the html files and forms for the character management process | 
 | 12/07/2023 | Bryan Flett | Initally tried to linkk MongoDB to the project | 
 | 12/08/2023 | Ryan Shipley | Modified the program to use a more simple H2 database | 
 | 12/08/2023 | Bryan Flett | Added the functionality to save characters to the database | 
